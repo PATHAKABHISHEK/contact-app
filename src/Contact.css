@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  border: 2px solid;
+  box-shadow: 5px 5px 3px #888888;
+  padding: 15px;
+  margin: 15px;
+  width: 50%;
+}
+
+.image {
+  height: 80px;
+  width: 80px;
+  border: 1px solid;
+  border-radius: 50%;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  padding-left: 50px;
+}

@@ -1,26 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import Contact from "./Contact";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    contacts: [
+      {
+        name: "Abhishek Pathak",
+        handle: "@abc",
+        imageUrl:
+          "C:\\Users\\AP185396\\Documents\\contact-app\\public\\logo512.png",
+      },
+      {
+        name: "Tommy",
+        handle: "@tbc",
+        imageUrl: "",
+      },
+      {
+        name: "Abhishek Pathak",
+        handle: "@ac",
+        imageUrl: "",
+      },
+      {
+        name: "Abhishek Pathak",
+        handle: "@tommy",
+        imageUrl: "",
+      },
+    ],
+  };
+  render() {
+    return (
+      <div className="main">
+        {this.state.contacts.map((contact) => {
+          return <Contact name={contact.name} handle={contact.handle} />;
+        })}
+      </div>
+    );
+  }
 }
 
 export default App;
