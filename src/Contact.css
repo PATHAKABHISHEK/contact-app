@@ -19,6 +19,13 @@
   border-radius: 50%;
 }
 
+.content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
 .details {
   display: flex;
   flex-direction: column;

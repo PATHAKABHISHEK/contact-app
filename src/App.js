@@ -1,29 +1,29 @@
 import React, { Component } from "react";
 import "./App.css";
 import Contact from "./Contact";
+import ApiRequest from "./ApiRequest";
 
 class App extends Component {
   state = {
-    contacts: [
-      {
-        name: "Abhishek Pathak",
-        handle: "@abc",
-      },
-      {
-        name: "Tommy",
-        handle: "@tbc",
-      },
-      {
-        name: "Abhishek Pathak",
-        handle: "@ac",
-      },
-      {
-        name: "Abhishek Pathak",
-        handle: "@tommy",
-      },
-    ],
+    contacts: [],
     query: "",
   };
+  componentDidMount() {
+    ApiRequest.getContacts().then((contacts) => {
+      this.setState({ contacts });
+    });
+  }
+
+  removeContact = (contact) => {
+    ApiRequest.removeContact(contact).then((contacts) => {
+      this.setState({
+        contacts: this.state.contacts.filter((c) => {
+          return c.handle !== contact;
+        }),
+      });
+    });
+  };
+
   render() {
     return (
       <div className="main">
@@ -51,7 +51,14 @@ class App extends Component {
               .includes(this.state.query.toLowerCase());
           })
           .map((contact) => {
-            return <Contact name={contact.name} handle={contact.handle} />;
+            return (
+              <Contact
+                removeContact={this.removeContact}
+                name={contact.name}
+                handle={contact.handle}
+                key={contact.handle}
+              />
+            );
           })}
       </div>
     );
