@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./Contact.css";
 import { findByLabelText } from "@testing-library/react";
-import PropTypes, { string } from "prop-types";
+import PropTypes from "prop-types";
 
 class Contact extends Component {
   render() {
@@ -39,8 +39,8 @@ class Contact extends Component {
 }
 
 Contact.propTypes = {
-  name: string.isRequired,
-  handle: string.isRequired,
+  name: PropTypes.string.isRequired,
+  handle: PropTypes.string.isRequired,
 };
 
 export default Contact;
