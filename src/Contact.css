@@ -1,8 +1,12 @@
 .container {
+  line-height: 5px;
   display: flex;
   flex-direction: row;
-  border: 2px solid;
-  box-shadow: 5px 5px 3px #888888;
+  border: 2px solid #59c173;
+  border-radius: 1%;
+  box-shadow: 5px 5px 3px #59c173;
+  box-shadow: 5px 5px 3px linear-gradient(to right, #59c173, #a17fe0, #5d26c1);
+  box-shadow: 5px 5px 3px -webkit-linear-gradient(to right, #59c173, #a17fe0, #5d26c1);
   padding: 15px;
   margin: 15px;
   width: 50%;
