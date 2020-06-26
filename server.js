@@ -1,8 +1,11 @@
 const express = require("express");
 const cors = require("cors");
+const bodyParser = require("body-parser");
 
 const app = express();
+app.use(bodyParser.json());
 app.use(cors());
+
 let contacts = [
   {
     name: "Abhishek Pathak",
@@ -39,6 +42,22 @@ app.get("/removeContact", (req, res) => {
   });
 });
 
+app.post("/addContact", (req, res) => {
+  let name = req.body.name;
+  let handle = req.body.handle;
+  console.log(req.body);
+  contacts = [
+    ...contacts,
+    {
+      name: name,
+      handle: handle,
+    },
+  ];
+  console.log(contacts);
+  res.send({
+    contacts,
+  });
+});
 app.listen(5001, () => {
   console.log("Server is listening on Port 5001");
 });
